@@ -12,7 +12,7 @@ jobs:
       AWS_REGION: us-east-1
       ECR_REPOSITORY_NAME: my-repo
       DOCKERFILE_PATH: ./Dockerfile
-    steps:s
+    steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
