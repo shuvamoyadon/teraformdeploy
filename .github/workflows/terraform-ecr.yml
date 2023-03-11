@@ -48,4 +48,3 @@ jobs:
           echo "AWS configuration complete"
           aws ecr get-login-password --region ${{ env.AWS_REGION }} |
           docker login --username AWS --password-stdin ${{ ECR_REGISTRY }}
-      
