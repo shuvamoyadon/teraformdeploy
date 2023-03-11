@@ -28,6 +28,7 @@ jobs:
         run: cd terraform && terraform init && terraform plan
       - name: Apply Terraform
         run: cd terraform && terraform apply -auto-approve
+
       - name: Build and push Docker image
         id: build-and-push
         uses: docker/build-push-action@v2
@@ -45,8 +46,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
           echo "AWS configuration complete"
-        with:
-          args: >
-            aws ecr get-login-password --region ${{ env.AWS_REGION }} |
-            docker login --username AWS --password-stdin ${{ env.ECR_REGISTRY }}
+          aws ecr get-login-password --region ${{ env.AWS_REGION }} |
+          docker login --username AWS --password-stdin ${{ ECR_REGISTRY }}
       
