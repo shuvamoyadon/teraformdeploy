@@ -25,3 +25,13 @@ jobs:
         run: cd terraform && pwd && terraform init && terraform plan
       - name: Apply Terraform
         run: cd terraform && terraform apply -auto-approve
+
+      - name: Build and push Docker image
+        env:
+          ECR_REGISTRY: 085167882865.dkr.ecr.us-east-1.amazonaws.com
+          IMAGE_NAME: my-image
+          TAG: latest
+        run: |
+          $(aws ecr get-login --no-include-email --region us-east-1)
+          docker build -t $ECR_REGISTRY/$IMAGE_NAME:$TAG .
+          docker push $ECR_REGISTRY/$IMAGE_NAME:$TAG
