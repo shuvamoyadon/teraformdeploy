@@ -31,7 +31,6 @@ jobs:
           ECR_REGISTRY: 085167882865.dkr.ecr.us-east-1.amazonaws.com
           IMAGE_NAME: my-image
           TAG: latest
-
       - name: Login to Amazon ECR
         id: login-ecr
         run: echo ${{ secrets.AWS_SECRET_ACCESS_KEY }} | aws ecr get-login-password --region us-east-1 | docker login --username cloud_user --password-stdin 085167882865.dkr.ecr.us-east-1.amazonaws.com
