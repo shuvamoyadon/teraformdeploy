@@ -33,5 +33,3 @@ jobs:
           TAG: latest
         run: |
           $(aws ecr get-login --no-include-email --region us-east-1)
-          docker build -t $ECR_REGISTRY/$IMAGE_NAME:$TAG .
-          docker push $ECR_REGISTRY/$IMAGE_NAME:$TAG
