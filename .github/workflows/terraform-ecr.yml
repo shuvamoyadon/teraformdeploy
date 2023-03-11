@@ -23,7 +23,5 @@ jobs:
           aws-region: us-east-1
       - name: Navigate to Terraform directory
         run: cd terraform && pwd && terraform init && terraform plan
-      - name: Plan Terraform
-        run: terraform plan
       - name: Apply Terraform
-        run: terraform apply -auto-approve
+        run: cd terraform && terraform apply -auto-approve
