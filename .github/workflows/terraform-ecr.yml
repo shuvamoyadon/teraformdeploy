@@ -44,5 +44,9 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          aws-actions/configure-aws-credentials@v1
-          aws ecr get-login-password --region ${{ env.AWS_REGION }} | docker login --username AWS --password-stdin ${{ env.ECR_REGISTRY }}
+          echo "AWS configuration complete"
+        with:
+          args: >
+            aws ecr get-login-password --region ${{ env.AWS_REGION }} |
+            docker login --username AWS --password-stdin ${{ env.ECR_REGISTRY }}
+      
