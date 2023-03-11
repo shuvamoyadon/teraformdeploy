@@ -38,4 +38,3 @@ jobs:
         run: docker tag "my-iamage" ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }} .amazonaws.com/${{ env.ECR_REPOSITORY_NAME }}
       - name: Push image to Amazon ECR
         run: docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }} .amazonaws.com/${{ env.ECR_REPOSITORY_NAME }}
-
