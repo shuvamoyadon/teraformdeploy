@@ -31,5 +31,7 @@ jobs:
         run: docker build -t "my-iamage" .
       - name: Tag image
         run: docker tag "my-iamage" ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY_NAME }}
-      - name: Push image to Amazon ECR
-        run: docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY_NAME }}
+      - name: Update kubeconfig
+        run: |
+          aws eks update-kubeconfig --name ${{ env.K8CLUSTER }} --region ${{ env.AWS_REGION }}
+          export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
