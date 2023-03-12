@@ -36,3 +36,6 @@ jobs:
         run: |
           aws eks update-kubeconfig --name ${{ env.K8CLUSTER }} --region ${{ env.AWS_REGION }}
           export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config
+      - name: Deploy to EKS cluster
+        run: |
+          kubectl apply -f deployment.yaml --kubeconfig $HOME/.kube/config
