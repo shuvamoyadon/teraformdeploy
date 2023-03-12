@@ -2,8 +2,8 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_ecr_repository" "my_repo" {
-  name = "my-repo"
+resource "aws_ecr_repository" "my_repo1" {
+  name = "my-repo1"
 }
 
 data "aws_availability_zones" "available" {}
@@ -83,3 +83,4 @@ module "eks" {
     }
   }
 }
+
