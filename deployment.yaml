@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web-server
-        image: 466206880806.dkr.ecr.us-east-1.amazonaws.com/myrepo1:latest
+        image: 466206880806.dkr.ecr.us-east-1.amazonaws.com/my-repo1:latest
         ports:
         - containerPort: 3000
 ---
