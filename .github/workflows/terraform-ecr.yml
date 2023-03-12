@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_REGION: us-east-1
-      ECR_REPOSITORY_NAME: my-repo
+      ECR_REPOSITORY_NAME: my-repo1
       DOCKERFILE_PATH: ./Dockerfile
     steps:
       - name: Checkout code
