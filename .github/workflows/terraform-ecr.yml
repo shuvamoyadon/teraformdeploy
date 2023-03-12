@@ -11,6 +11,7 @@ jobs:
       AWS_REGION: us-east-1
       ECR_REPOSITORY_NAME: my-repo1
       DOCKERFILE_PATH: ./Dockerfile
+      K8CLUSTER: learnk8s
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
